@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t edenjiga/docker-react -f Dockerfile.dev .
+  - docker build -t nameOfContainerHere -f Dockerfile.dev .
 
 script:
-  - docker run edenjiga/docker-react npm run test -- --coverage
+  - docker run nameOfContainerHere npm run test -- --coverage
