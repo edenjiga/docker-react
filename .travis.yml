@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t image-name-here -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true image-name-here npm test
+
+after_success:
+  - docker build -t edenjiga/complex-client ./client
+  - docker build -t edenjiga/complex-nginx ./nginx
+  - docker build -t edenjiga/complex-server ./server
+  - docker build -t edenjiga/complex-worker ./worker
+  #Log in to the dokcer CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #Take the image to dockerhub
+  - docker push edenjiga/complex-client
+  - docker push edenjiga/complex-nginx
+  - docker push edenjiga/complex-server
+  - docker push edenjiga/complex-worker
