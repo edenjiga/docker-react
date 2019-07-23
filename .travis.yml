@@ -20,3 +20,21 @@ after_success:
   - docker push edenjiga/complex-nginx
   - docker push edenjiga/complex-server
   - docker push edenjiga/complex-worker
+
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: complex-docker
+  env: ComplexDocker-env
+  bucker_name: elasticbeanstalk-us-east-2-114145236294
+  bucket_path: docker-complex
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_kay:
+    secure: $AWS_SECRET_KEY
+posgress
+posgresspassword
+complex
