@@ -21,7 +21,6 @@ after_success:
   - docker push edenjiga/complex-server
   - docker push edenjiga/complex-worker
 
-
 deploy:
   provider: elasticbeanstalk
   region: us-east-2
@@ -35,6 +34,3 @@ deploy:
     secure: $AWS_ACCESS_KEY
   secret_access_kay:
     secure: $AWS_SECRET_KEY
-posgress
-posgresspassword
-complex
