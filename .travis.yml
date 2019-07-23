@@ -26,7 +26,7 @@ deploy:
   region: us-east-2
   app: complex-docker
   env: ComplexDocker-env
-  bucker_name: elasticbeanstalk-us-east-2-114145236294
+  bucket_name: elasticbeanstalk-us-east-2-114145236294
   bucket_path: docker-complex
   on:
     branch: master
